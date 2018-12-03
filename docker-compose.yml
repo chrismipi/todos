@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  ui:
+    image: chrismipi/todo-app:prod
+    ports:
+      - '8008:8008'
+    networks:
+      - overlay
+    depends_on:
+      - backend
+
+  backend:
+    image: chrismipi/todo-backend:prod
+    ports:
+      - '8080:8080'
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 150M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 90s
+      update_config:
+        parallelism: 2
+        delay: 10s
+        order: start-first
+    networks:
+      - overlay
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_ROOT_PASSWORD: example
+    networks:
+      - overlay
+
+networks:
+  overlay:
