@@ -3,8 +3,8 @@ package za.co.operadev.demo.service;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.co.operadev.demo.model.Todo;
-import za.co.operadev.demo.repository.ToDoRepo;
+import za.co.operadev.demo.models.Todo;
+import za.co.operadev.demo.repository.TodoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class ToDoService {
 	@Autowired
-	private ToDoRepo repo;
+	private TodoRepository repo;
 
 	public void save(Todo todo) {
 		repo.save(todo);

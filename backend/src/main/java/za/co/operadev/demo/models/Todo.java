@@ -1,4 +1,4 @@
-package za.co.operadev.demo.model;
+package za.co.operadev.demo.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

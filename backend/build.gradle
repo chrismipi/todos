@@ -32,6 +32,7 @@ task unpack(type: Copy) {
 	from(zipTree(tasks.bootJar.outputs.files.singleFile))
 	into("build/dependency")
 }
+
 docker {
 	name "${project.group}/${bootJar.baseName}"
 	copySpec.from(tasks.unpack.outputs).into("dependency")
@@ -42,10 +43,11 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
-	implementation('org.springframework.boot:spring-boot-starter-web')
-	implementation('mysql:mysql-connector-java')
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'mysql:mysql-connector-java'
+	testImplementation 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
