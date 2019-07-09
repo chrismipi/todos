@@ -34,7 +34,7 @@ public class ToDoController {
 	public @ResponseBody ResponseEntity<Object> getPerson(@PathVariable long id) {
 		Object p;
 		try {
-			p = service.getPerson(id);
+			p = service.getTodoById(id);
 		} catch (NotFoundException e) {
 			p = e.getMessage();
 		}
@@ -50,7 +50,7 @@ public class ToDoController {
 	@PutMapping("/todo/{id}")
 	public @ResponseBody ResponseEntity<Object> updateTodo(@PathVariable long id, @RequestBody Todo todo) {
 		try {
-			Todo td = service.getPerson(id);
+			Todo td = service.getTodoById(id);
 			td.setComplete(todo.getComplete());
 			td.setTitle(todo.getTitle());
 

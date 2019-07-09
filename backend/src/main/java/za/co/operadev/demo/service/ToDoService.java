@@ -1,42 +1,17 @@
 package za.co.operadev.demo.service;
 
 import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import za.co.operadev.demo.models.Todo;
-import za.co.operadev.demo.repository.TodoRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-@Service
-public class ToDoService {
-	@Autowired
-	private TodoRepository repo;
+public interface ToDoService {
 
-	public void save(Todo todo) {
-		repo.save(todo);
-	}
+	void save(Todo todo);
 
-	public Todo getPerson(Long id) throws NotFoundException {
-		Optional<Todo> p = repo.findById(id);
+	Todo getTodoById(Long id) throws NotFoundException;
 
-		if(p.isPresent()) {
-			return p.get();
-		} else throw new NotFoundException("Todo does not exit ");
-	}
+	List<Todo> getAll();
 
-	public List<Todo> getAll() {
-		Iterable<Todo> it = repo.findAll();
-		List<Todo> people = new ArrayList<>();
-		it.forEach((people::add));
-		return people;
-	}
-
-	public void delete(Long id) {
-		if(repo.existsById(id)) {
-			repo.deleteById(id);
-		}
-	}
+	void delete(Long id);
 }
