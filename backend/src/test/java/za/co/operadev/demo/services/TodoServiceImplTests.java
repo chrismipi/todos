@@ -56,7 +56,8 @@ public class TodoServiceImplTests {
 
         Optional<Todo> todoOption = Optional.of(todo);
         Mockito.when(todoRepository.findById(1L)).thenReturn(todoOption);
-//        Mockito.when(todoRepository.save(todo)).getMock();
+
+        Mockito.when(todoRepository.save(todo)).thenReturn(null);
         // todo save
         // todo delete
     }
