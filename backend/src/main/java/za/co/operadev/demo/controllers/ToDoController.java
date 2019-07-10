@@ -1,4 +1,4 @@
-package za.co.operadev.demo.controller;
+package za.co.operadev.demo.controllers;
 
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
