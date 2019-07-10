@@ -23,10 +23,9 @@ public class ToDoServiceImpl implements ToDoService{
     @Override
     public Todo getTodoById(Long id) throws NotFoundException {
         Optional<Todo> p = repo.findById(id);
-
         if(p.isPresent()) {
             return p.get();
-        } else throw new NotFoundException("Todo does not exit ");
+        } else throw new NotFoundException("Todo item with id " + id.toString() + " does not exit ");
     }
 
     @Override
