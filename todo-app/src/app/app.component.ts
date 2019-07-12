@@ -17,7 +17,6 @@ export class AppComponent {
   }
 
   addTodo() {
-    console.log(this.newTodo);
     this.todoDataService.addTodo(this.newTodo).subscribe((data: Todo[]) => {
       this.todosList = data;
     });
