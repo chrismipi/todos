@@ -8,11 +8,10 @@ It's mainly for demonstration of 3-tier architecture, and unit testing on the ba
 
 Built using the [Angular](https://angular.io/) framework, and its just consuming the [RESTful API](https://restfulapi.net/).
 
-## Backend
+## Backend [![CircleCI](https://circleci.com/gh/chrismipi/todos/tree/master.svg?style=svg)](https://circleci.com/gh/chrismipi/todos/tree/master)
 
 Build using [SpringBoot](https://spring.io/projects/spring-boot) framework, exposing a [RESTful API](https://restfulapi.net/) and savingTodos in the database.
 
 ## Database
 
 Using a relational database MySQL, could have used PostgreSQL or MariaDB or a no-SQL database.
-
