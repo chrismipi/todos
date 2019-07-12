@@ -2,6 +2,7 @@ package za.co.operadev.demo.controllers;
 
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,19 +20,19 @@ public class ToDoController {
 		this.service = service;
 	}
 
-	@PostMapping("/todo")
-	public @ResponseBody ResponseEntity<Object> post(@RequestBody Todo todo) {
+	@PostMapping(value = "/todo", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<Object> postTodo(@RequestBody Todo todo) {
 		service.save(todo);
 		return ResponseEntity.ok(service.getAll());
 	}
 
-	@GetMapping("/todo")
-	public @ResponseBody ResponseEntity<Object> getAllPersons() {
+	@GetMapping(value = "/todo", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<Object> getAllTodos() {
 		return ResponseEntity.ok(service.getAll());
 	}
 
 	@GetMapping("/todo/{id}")
-	public @ResponseBody ResponseEntity<Object> getPerson(@PathVariable long id) {
+	public @ResponseBody ResponseEntity<Object> getTodo(@PathVariable long id) {
 		Object p;
 		try {
 			p = service.getTodoById(id);
@@ -41,13 +42,13 @@ public class ToDoController {
 		return ResponseEntity.ok(p);
 	}
 
-	@DeleteMapping("/todo/{id}")
+	@DeleteMapping(value = "/todo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody ResponseEntity<Object> deleteTodo(@PathVariable long id) {
 		service.delete(id);
 		return ResponseEntity.ok(service.getAll());
 	}
 
-	@PutMapping("/todo/{id}")
+	@PutMapping(value = "/todo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody ResponseEntity<Object> updateTodo(@PathVariable long id, @RequestBody Todo todo) {
 		try {
 			Todo td = service.getTodoById(id);
