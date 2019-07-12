@@ -16,4 +16,3 @@ Build using [SpringBoot](https://spring.io/projects/spring-boot) framework, expo
 
 Using a relational database MySQL, could have used PostgreSQL or MariaDB or a no-SQL database.
 
-## 
