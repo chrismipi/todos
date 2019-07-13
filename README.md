@@ -12,6 +12,8 @@ Built using the [Angular](https://angular.io/) framework, and its just consuming
 
 Build using [SpringBoot](https://spring.io/projects/spring-boot) framework, exposing a [RESTful API](https://restfulapi.net/) and savingTodos in the database.
 
+You can check the REST API [here](https://todo-api.mcmipi.xyz/swagger-ui.html#/)
+
 ## Database
 
 Using a relational database MySQL, could have used PostgreSQL or MariaDB or a no-SQL database.
