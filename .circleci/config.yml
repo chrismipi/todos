@@ -36,13 +36,15 @@ jobs:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
-
       # run tests!
       - run: 
           name: Running all tests
           command: gradle test -i
-
-      # run 
+      # build the artifact
+      - run:
+          name: Build the JARS
+          command: gradle clean build
+      # build the docker image
       - run:
           name: Build Docker image
           command: docker build -t $IMAGE_NAME:latest .
