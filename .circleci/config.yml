@@ -51,7 +51,7 @@ jobs:
   
   publish-latest:
     environment:
-      IMAGE_NAME: todo-backend
+      IMAGE_NAME: chrismipi/todo-backend
     docker:
       - image: circleci/openjdk
     steps:
