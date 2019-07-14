@@ -1,10 +1,10 @@
 clean:
 	./gradlew clean
 
-compile:
+compile: clean
 	./gradlew build
 
-tests:
+tests: clean
 	./gradlew test -i
 
 build-image: clean compile

@@ -4,26 +4,22 @@
 #
 version: 2
 jobs:
-  tests:
+  build:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
     working_directory: ~/todo-backend/backend
 
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
+      IMAGE_NAME: chrismipi/todo-backend
 
     steps:
       - checkout:
           path: ~/todo-backend
+      - setup_remote_docker
 
       # Download and cache dependencies
       - restore_cache:
@@ -44,16 +40,9 @@ jobs:
       # run tests!
       - run: 
           name: Running all tests
-          command: gradle test
+          command: gradle test -i
 
-  build:
-    environment:
-      IMAGE_NAME: chrismipi/todo-backend
-    docker:
-      - image: circleci/openjdk
-    steps:
-      - checkout
-      - setup_remote_docker
+      # run 
       - run:
           name: Build Docker image
           command: docker build -t $IMAGE_NAME:latest .
