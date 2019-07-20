@@ -23,7 +23,6 @@ import static org.junit.Assert.*;
 public class TodoServiceImplTests {
     @TestConfiguration
     static class TodoServiceImplTestContextConfiguration {
-
         @Bean
         public ToDoService toDoService() {
             return new ToDoServiceImpl();

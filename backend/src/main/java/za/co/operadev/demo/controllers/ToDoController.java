@@ -23,14 +23,14 @@ public class ToDoController {
 		this.service = service;
 	}
 
-	@PostMapping(value = "/todo", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@PostMapping(value = "/todo", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public @ResponseBody ResponseEntity<Object> postTodo(@RequestBody TodoRequest todo, HttpServletRequest request) {
 		Todo td = new Todo(todo);
 		service.save(td);
 		return ResponseEntity.ok(service.getAll());
 	}
 
-	@GetMapping(value = "/todo", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(value = "/todo", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public @ResponseBody ResponseEntity<Object> getAllTodos(HttpServletRequest request) {
 		return ResponseEntity.ok(service.getAll());
 	}
@@ -46,13 +46,13 @@ public class ToDoController {
 		return ResponseEntity.ok(p);
 	}
 
-	@DeleteMapping(value = "/todo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@DeleteMapping(value = "/todo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public @ResponseBody ResponseEntity<Object> deleteTodo(@PathVariable long id, HttpServletRequest request) {
 		service.delete(id);
 		return ResponseEntity.ok(service.getAll());
 	}
 
-	@PutMapping(value = "/todo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@PutMapping(value = "/todo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public @ResponseBody ResponseEntity<Object> updateTodo(@PathVariable long id, @RequestBody TodoRequest todo, HttpServletRequest request) {
 		try {
 			Todo td = service.getTodoById(id);
