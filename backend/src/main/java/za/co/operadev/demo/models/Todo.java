@@ -18,6 +18,11 @@ public class Todo {
 	public Todo() {
 	}
 
+	public Todo(TodoRequest todoRequest) {
+		this.title = todoRequest.getTitle();
+		this.complete = todoRequest.getComplete();
+	}
+
 	public Todo(String title, Boolean complete) {
 		this.title = title;
 		this.complete = complete;
