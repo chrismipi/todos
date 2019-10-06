@@ -16,26 +16,26 @@ export class AppComponent {
     this.todos();
   }
 
-  addTodo() {
+    addTodo(): void {
     this.todoDataService.addTodo(this.newTodo).subscribe((data: Todo[]) => {
       this.todosList = data;
     });
     this.newTodo = new Todo();
   }
 
-  toggleTodoComplete(todo) {
+    toggleTodoComplete(todo): void {
     this.todoDataService.toggleTodoComplete(todo).subscribe((data: Todo[]) => {
       this.todosList = data;
     });
   }
 
-  removeTodo(todo) {
+    removeTodo(todo): void {
     this.todoDataService.deleteTodoById(todo.id).subscribe((data: Todo[]) => {
       this.todosList = data;
     });
   }
 
-  todos() {
+    private todos(): void {
     this.todoDataService.getAllTodos().subscribe((data: Todo[]) => {
       this.todosList = data;
     });
