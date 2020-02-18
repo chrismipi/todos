@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://todo-api.mcmipi.xyz/todo',
+  apiUrl: 'http://backend:8080',
   production: false,
 };
 
