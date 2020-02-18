@@ -11,7 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 import za.co.operadev.demo.models.Todo;
-import za.co.operadev.demo.repository.TodoRepository;
+import za.co.operadev.demo.repositories.TodoRepository;
 import za.co.operadev.demo.service.ToDoService;
 import za.co.operadev.demo.service.ToDoServiceImpl;
 

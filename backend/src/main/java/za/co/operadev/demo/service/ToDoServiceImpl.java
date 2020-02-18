@@ -4,7 +4,7 @@ import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.co.operadev.demo.models.Todo;
-import za.co.operadev.demo.repository.TodoRepository;
+import za.co.operadev.demo.repositories.TodoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
